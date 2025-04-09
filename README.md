@@ -1,2 +1,2 @@
 # ai-hiring-assistant
-Smart hiring powered by AI. Your AI buddy for evaluating candidates.
+A console-based AI chatbot that helps recruiters and hiring managers evaluate and select the perfect candidate by analyzing profiles and answering hiring-related questions intelligently.
