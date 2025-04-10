@@ -43,12 +43,12 @@ class ProfileChatbot:
             #         profile_str += f"Date: {cert.get('certificationDate', 'N/A')}\n"
 
             # Add education
-            # if "education" in profile and profile["education"]:
-            #     profile_str += "Education:\n"
-            #     for edu in profile["education"]:
-            #         profile_str += f"  - Degree: {edu.get('degree', 'N/A')}, Field: {edu.get('fieldOfStudy', 'N/A')}, "
-            #         profile_str += f"Institute: {edu.get('institute', 'N/A')}, Start: {edu.get('startDate', 'N/A')}, "
-            #         profile_str += f"End: {edu.get('endDate', 'N/A')}\n"
+            if "education" in profile and profile["education"]:
+                profile_str += "Education:\n"
+                for edu in profile["education"]:
+                    profile_str += f"  - Degree: {edu.get('degree', 'N/A')}, Field: {edu.get('fieldOfStudy', 'N/A')}, "
+                    profile_str += f"Institute: {edu.get('institute', 'N/A')}, Start: {edu.get('startDate', 'N/A')}, "
+                    profile_str += f"End: {edu.get('endDate', 'N/A')}\n"
 
             # Add experience
             if "experience" in profile and profile["experience"]:
