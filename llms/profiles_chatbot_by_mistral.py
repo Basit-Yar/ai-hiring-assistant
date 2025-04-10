@@ -94,12 +94,23 @@ class ProfileChatbot:
         self.conversation_history.append(user_message)
 
     def send_user_prompt_request(self):
-        response = self.client.chat.stream(
+
+        buffer = ""
+        stream_response = self.client.chat.stream(
             model=self.model,
             messages=self.conversation_history
         )
-        for chunk in response:
-            print(chunk.data.choices[0].delta.content, end="")
+        for chunk in stream_response:
+            content_part = chunk.data.choices[0].delta.content
+            if content_part:
+                buffer += content_part
+                print(content_part, end="", flush=True)
+
+        assistant_message = {
+            "role": "assistant",
+            "content": buffer
+        }
+        self.conversation_history.append(assistant_message)
 
     def initialize_profile_context(self):
         # print("fetching start")
